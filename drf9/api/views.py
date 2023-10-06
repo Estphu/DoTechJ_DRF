@@ -1,15 +1,8 @@
 from .models import Student
 from .serializers import StudentSerializer
-from rest_framework.generics import GenericAPIView, ListCreateAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import (ListModelMixin, CreateModelMixin,
 UpdateModelMixin, RetrieveModelMixin, DestroyModelMixin)
-
-class StudentListApi(ListCreateAPIView):
-    serializer_class = StudentSerializer
-
-class StudentDetail(RetrieveUpdateAPIView):
-    serializer_class = StudentSerializer    
-
 
 class LCStudentApi(ListModelMixin, CreateModelMixin, GenericAPIView):
     queryset = Student.objects.all()
