@@ -21,10 +21,11 @@ from api import views
 router = DefaultRouter()
 
 router.register('studentapi',views.StudentMVS,basename='student')
-router.register('studentreadonly',views.StudentROMVS,basename='read-only-std')
+# router.register('studentreadonly',views.StudentROMVS,basename='read-only-std')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/',include('rest_framework.urls')),
     path('', include(router.urls)),
 ]
